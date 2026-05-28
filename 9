@@ -1,0 +1,45 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+ struct aluno{
+    int matricula;
+    string nome;
+    int codigo;
+    float n1; 
+    float n2; 
+    float media;
+ };
+
+int main () {
+    aluno alunos[10];
+    int quant;
+    
+    cout<<"Insira o numero de alunos que deseja cadastrar: ";
+    cin>>quant;
+    
+    for(int i=0; i<quant; i++){
+        cout<<"aluno "<<i+1<<endl;
+        
+        cout<< "matricula: "<<endl;
+        cin>>alunos[i].matricula;
+        cout<<"nome: "<<endl;
+        cin>>alunos[i].nome;
+        cout<<"codigo de matricula: "<<endl;
+        cin>>alunos[i].codigo;
+        cout<<"nota 1: "<<endl;
+        cin>>alunos[i].n1;
+        cout<<"nota 2: "<<endl;
+        cin>>alunos[i].n2;
+        alunos[i].media= (alunos[i].n1 + alunos[i].n2*2)/3;
+    }
+    cout<<"LISTAGEM FINAL: "<<endl;
+    for(int i=0; i<quant; i++){
+        cout << "Aluno " <<i+1<<endl;
+        cout << "Matricula: " <<alunos[i].matricula<<endl;
+        cout << "Nome: " <<alunos[i].nome<<endl;
+        cout << "Codigo da disciplina: "<< alunos[i].codigo<<endl;
+        cout << "Media Final: "<< alunos[i].media<<endl;
+    }
+    return 0;
+}
