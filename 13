@@ -1,0 +1,50 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+int main() {
+
+    string valores[] = {
+        "A", "2", "3", "4", "5", "6", "7",
+        "8", "9", "10", "J", "Q", "K"
+    };
+
+    string naipes[] = {
+        "Copas", "Ouros", "Espadas", "Paus"
+    };
+
+    string baralho[52];
+
+    int k = 0;
+
+    for (int i = 0; i < 4; i++) {
+        for (int j = 0; j < 13; j++) {
+            baralho[k] = valores[j] + " de " + naipes[i];
+            k++;
+        }
+    }
+
+    srand(time(0));
+    
+    for (int i = 0; i < 52; i++) {
+        int r = rand() % 52;
+        string temp = baralho[i];
+        baralho[i] = baralho[r];
+        baralho[r] = temp;
+    }
+    
+  cout << "Jogador 1: ";
+    for (int i = 0; i < 5; i++) {
+        cout << baralho[i] << endl;
+    }
+
+
+    cout << "Jogador 2: ";
+    for (int i = 5; i < 10; i++) {
+        cout << baralho[i] << endl;
+    }
+
+    return 0;
+}
