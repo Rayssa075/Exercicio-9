@@ -1,0 +1,71 @@
+#include <iostream>
+using namespace std;
+
+struct Endereco {
+    string rua;
+    int numero;
+    string complemento;
+    string bairro;
+    string cep;
+    string cidade;
+    string estado;
+    string pais;
+};
+
+struct Telefone {
+    int ddd;
+    string numero;
+};
+
+struct Data {
+    int dia;
+    int mes;
+    int ano;
+};
+
+struct Pessoa {
+    string nome;
+    string email;
+    Endereco endereco;
+    Telefone telefone;
+    Data aniversario;
+    string observacao;
+};
+
+int main() {
+    Pessoa agenda[100];
+    int qtd;
+
+    cout << "Quantidade de pessoas: ";
+    cin >> qtd;
+
+    for (int i = 0; i < qtd; i++) {
+        cout << "Nome: ";
+        cin >> agenda[i].nome;
+
+        cout << "Email: ";
+        cin >> agenda[i].email;
+
+        cout << "Rua: ";
+        cin >> agenda[i].endereco.rua;
+
+        cout << "Numero: ";
+        cin >> agenda[i].endereco.numero;
+
+        cout << "DDD: ";
+        cin >> agenda[i].telefone.ddd;
+
+        cout << "Telefone: ";
+        cin >> agenda[i].telefone.numero;
+    }
+
+    cout << "\nAGENDA\n";
+
+    for (int i = 0; i < qtd; i++) {
+        cout << agenda[i].nome << endl;
+        cout << agenda[i].email << endl;
+        cout << agenda[i].telefone.numero << endl;
+    }
+
+    return 0;
+}
