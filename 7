@@ -1,0 +1,53 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+ struct aluno{
+    int matricula;
+    string nome;
+    int codigo;
+    float n1, n2, n3; 
+    float media;
+ };
+
+int main () {
+    aluno alunos[5];
+    
+    for(int i=0; i<5; i++){
+        cout<<"aluno "<<i+1<<endl;
+        cout<< "matricula: "<<endl;
+        cin>>alunos[i].matricula;
+        cout<<"nome: "<<endl;
+        cin>>alunos[i].nome;
+        cout<<"nota 1: "<<endl;
+        cin>>alunos[i].n1;
+        cout<<"nota 2: "<<endl;
+        cin>>alunos[i].n2;
+        cout<<"nota 3: "<<endl;
+        cin>>alunos[i].n3;
+        alunos[i].media= (alunos[i].n1 + alunos[i].n2 + alunos[i].n3)/3;
+    }
+    
+    int maiorn1 = 0;
+    for(int i = 1; i<5; i++){
+     if(alunos[i].n1>alunos[maiorn1].n1){
+         maiorn1 = i;
+     }
+    }
+    
+    int maiormedia = 0;
+    for(int i = 0; i<5; i++){
+        if(alunos[i].media>alunos[maiormedia].media){
+            maiormedia = i;
+        }
+    }
+    
+    cout<<"Aluno com maior nota na primeira prova: "<<endl;
+    cout<<"Nome: "<< alunos[maiorn1].nome<<endl;
+    cout<<"Nota: "<< alunos[maiorn1].n1<<endl;
+    cout<<"Aluno com maior media geral: "<<endl;
+    cout<<"Nome: "<<alunos[maiormedia].nome<<endl;
+    cout<<"Media: "<<alunos[maiormedia].media<<endl;
+
+    return 0;
+}
