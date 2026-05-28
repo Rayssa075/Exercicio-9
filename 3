@@ -1,0 +1,38 @@
+#include <iostream>
+#include <string>
+#include <vector>
+#include <cmath> 
+using namespace std;
+
+struct Acao {
+    string nomeCompanhia;
+    double valorAtual;
+};
+
+int main() {
+    vector<Acao> carteira(3);
+    double soma = 0, media, desvioPadrao = 0;
+
+    
+    for (int i = 0; i < 3; i++) {
+        cout << "Nome da acao " << (i + 1) << ": ";
+        getline(cin >> ws, carteira[i].nomeCompanhia);
+        cout << "Valor atual: ";
+        cin >> carteira[i].valorAtual;
+        soma += carteira[i].valorAtual;
+    }
+
+
+    media = soma / 3;
+
+    
+    for (int i = 0; i < 3; i++) {
+        desvioPadrao += pow(carteira[i].valorAtual - media, 2);
+    }
+    desvioPadrao = sqrt(desvioPadrao / 3);
+
+    cout << "\nMedia dos valores: " << media << endl;
+    cout << "Desvio padrao: " << desvioPadrao << endl;
+
+    return 0;
+}
