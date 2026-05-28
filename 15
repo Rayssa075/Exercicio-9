@@ -1,0 +1,47 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+
+    string receita[5];
+    string ingredientes[5][10];
+    int qtd[5];
+
+    for (int i = 0; i < 5; i++) {
+        cout << "Nome da sua receita: ";
+        getline(cin, receita[i]);
+        cout << "Quantidade de ingredientes: ";
+        cin >> qtd[i];
+        cin.ignore();
+        for (int j = 0; j < qtd[i]; j++) {
+            cout << "Ingrediente: ";
+            getline(cin, ingredientes[i][j]);
+        }
+    }
+
+    string busca;
+
+    while (true) {
+
+        cout << "Buscar receita: ";
+        getline(cin, busca);
+        if (busca == "") {
+            break;
+        }
+        bool achou = false;
+        for (int i = 0; i < 5; i++) {
+            if (busca == receita[i]) {
+                achou = true;
+                cout << "Ingredientes:";
+                for (int j = 0; j < qtd[i]; j++) {
+                    cout << ingredientes[i][j] << endl;
+                }
+            }
+        }
+        if (!achou) {
+            cout << "Nao encontrada";
+        }
+    }
+
+    return 0;
+}
