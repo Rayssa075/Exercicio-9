@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+
+struct Pessoa {
+    string nome;
+    string endereco;
+    string telefone;
+};
+
+int main() {
+
+    Pessoa p[15];
+    for (int i = 0; i < 15; i++) {
+        cout << "pessoa " << i + 1 << endl;
+        cout << "digite o nome";
+        getline(cin, p[i].nome);
+        cout << "digite o endereco ";
+        getline(cin, p[i].endereco);
+        cout << "digite o telefone ";
+        getline(cin, p[i].telefone);
+    }
+
+    for (int i = 0; i < 14; i++) {
+        for (int j = i + 1; j < 15; j++) {
+            if (p[i].nome > p[j].nome) {
+                Pessoa aux = p[i];
+                p[i] = p[j];
+                p[j] = aux;
+            }
+        }
+    }
+    
+    for (int i = 0; i < 15; i++) {
+        cout << "nome: " << p[i].nome << endl;
+        cout << "endereco: " << p[i].endereco << endl;
+        cout << "telefone: " << p[i].telefone << endl;
+    }
+
+    return 0;
+}
