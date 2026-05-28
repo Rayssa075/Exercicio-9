@@ -1,0 +1,47 @@
+#include <iostream>
+#include <string> 
+using namespace std;
+
+ struct dados{
+    string nome;
+    int idade;
+    char sexo;
+    string cpf;
+    string nascimento;
+    int codigo;
+    string cargo;
+    float salario;
+ };
+
+int main(){
+    dados dados;
+    cout<<"Insira os dados do funcionario: "<<endl;
+    cout<<"Nome do funcionario: ";
+    cin>>dados.nome;
+    cout<<"Idade do funcionario: ";
+    cin>>dados.idade;
+    cout<<"Sexo do funcionario (M/F): ";
+    cin>>dados.sexo;
+    cout<<"CPF: ";
+    cin>>dados.cpf;
+    cout<<"Data de nascimanto: ";
+    cin>>dados.nascimento;
+    cout<<"Codigo do setor: ";
+    cin>>dados.codigo;
+    cout<<"Cargo que oculpa: ";
+    cin>>dados.cargo;
+    cout<<"salario que recebe";
+    cin>>dados.salario;
+    
+    cout<<"DADOS DO FUNCIONARIO: ";
+    cout<<"Nome: "<<dados.nome<<endl;
+    cout<<"Idade: "<<dados.idade<<endl;
+    cout<<"Sexo: "<<dados.sexo<<endl;
+    cout<<"CPF: "<<dados.cpf<<endl;
+    cout<<"Data de Nascimento: "<<dados.nascimento<<endl;
+    cout<<"Codigo do Setor: "<<dados.codigo<<endl;
+    cout<<"Cargo: "<<dados.cargo<<endl;
+    cout<<"Salario: R$ "<<dados.salario<<endl;
+    
+return 0;
+}
