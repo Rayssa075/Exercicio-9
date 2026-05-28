@@ -1,0 +1,61 @@
+#include <iostream>
+using namespace std;
+
+struct Filme {
+    string nome;
+    int ano;
+    int duracao;
+};
+
+struct Diretor {
+    string nome;
+    int qtd;
+    Filme filmes[10];
+};
+
+int main() {
+
+    Diretor d[10];
+
+    for (int i = 0; i < 10; i++) {
+
+        cout << "Diretor: ";
+        getline(cin, d[i].nome);
+        cout << "Qtd filmes: ";
+        cin >> d[i].qtd;
+        cin.ignore();
+        for (int j = 0; j < d[i].qtd; j++) {
+            cout << "Filme: ";
+            getline(cin, d[i].filmes[j].nome);
+            cout << "Ano: ";
+         cin >> d[i].filmes[j].ano;
+            cout << "Duracao: ";
+            cin >> d[i].filmes[j].duracao;
+            cin.ignore();
+        }
+    }
+
+    string busca;
+
+    while (true) {
+
+        cout << "Buscar diretor: ";
+        getline(cin, busca);
+        if (busca == "") break;
+        bool achou = false;
+        for (int i = 0; i < 10; i++) {
+            if (d[i].nome == busca) {
+                achou = true;
+                cout << "Filmes:";
+                for (int j = 0; j < d[i].qtd; j++) {
+                    cout << d[i].filmes[j].nome << endl;
+                }
+            }
+        }
+        if (!achou) {
+            cout << "Nao encontrado.";
+        }
+    }
+
+    return 0;
+}
