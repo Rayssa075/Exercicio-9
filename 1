@@ -1,0 +1,36 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+struct Acao {
+    string nomeCompanhia;
+    string areaAtuacao;
+    double valorAtual;
+    double valorAnterior;
+    double variacao;
+};
+
+int main() {
+    vector<Acao> carteira(3);
+
+    // Preenchimento
+    for (int i = 0; i < 3; i++) {
+        cout << "Dados da acao " << (i + 1) << ":" << endl;
+        cout << "Nome: ";
+        getline(cin >> ws, carteira[i].nomeCompanhia);
+        cout << "Valor atual: ";
+        cin >> carteira[i].valorAtual;
+        carteira[i].variacao = ((carteira[i].valorAtual - 100.0) / 100.0) * 100;
+    }
+
+    // Impressão
+    cout << "\n--- Acoes Cadastradas ---" << endl;
+    for (int i = 0; i < 3; i++) {
+        cout << carteira[i].nomeCompanhia << " | Valor: R$ " << carteira[i].valorAtual 
+             << " | Var: " << carteira[i].variacao << "%" << endl;
+    }
+
+    return 0;
+}
