@@ -1,0 +1,30 @@
+#include <iostream>
+using namespace std;
+
+struct Pessoa {
+    string nome;
+    int idade;
+    string endereco;
+};
+
+int main() {
+    Pessoa p;
+    
+    Pessoa *ptr = &p;
+
+    cout << "digite o nome ";
+    getline(cin, ptr->nome);
+
+    cout << "digite a idade ";
+    cin >> ptr->idade;
+    cin.ignore();
+
+    cout << "digite o endereco ";
+    getline(cin, ptr->endereco);
+
+    cout << "nome: " << ptr->nome << endl;
+    cout << "idade: " << ptr->idade << endl;
+    cout << "endereco: " << ptr->endereco << endl;
+
+    return 0;
+}
